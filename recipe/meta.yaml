@@ -17,6 +17,8 @@ build:
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage("re2", max_pin="x.x.x") }}
+  missing_dso_whitelist:
+    - '$RPATH/ld64.so.1'
 
 requirements:
   build:
