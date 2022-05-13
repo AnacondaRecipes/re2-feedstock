@@ -24,7 +24,7 @@ requirements:
   build:
     - cmake
     - make  # [unix]
-    - ninja # [unix]
+    - ninja-base  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
