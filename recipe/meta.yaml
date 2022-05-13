@@ -23,8 +23,8 @@ build:
 requirements:
   build:
     - cmake
-    - make
-    - ninja
+    - make  # [unix]
+    - ninja # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
