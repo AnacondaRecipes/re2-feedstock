@@ -1,7 +1,7 @@
 {% set name = "re2" %}
-{% set version = "2020-11-01" %}
+{% set version = "2022-04-01" %}
 {% set dotversion = version.replace('-', '.') %}
-{% set sha256 = "8903cc66c9d34c72e2bc91722288ebc7e3ec37787ecfef44d204b2d6281954d7" %}
+{% set sha256 = "1ae8ccfdb1066a731bba6ee0881baad5efd2cd661acd9569b689f2586e1a50e9" %}
 
 package:
   name: {{ name|lower }}
@@ -17,16 +17,16 @@ build:
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage("re2", max_pin="x.x.x") }}
+  missing_dso_whitelist:
+    - '$RPATH/ld64.so.1'
 
 requirements:
   build:
     - cmake
-    - make
-    - ninja
+    - make  # [unix]
+    - ninja-base  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-  host:
-  run:
 
 test:
   commands:
@@ -48,6 +48,7 @@ about:
     RE2 is a fast, safe, thread-friendly alternative to backtracking regular expression
     engines like those used in PCRE, Perl, and Python. It is a C++ library.
   dev_url: https://github.com/google/re2/
+  doc_url: https://github.com/google/re2/wiki
 
 extra:
   recipe-maintainers:
