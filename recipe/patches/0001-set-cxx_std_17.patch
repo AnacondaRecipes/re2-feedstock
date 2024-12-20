@@ -1,0 +1,52 @@
+From 61a31185fd3644c0bb65fa3b33e0886a8b883d64 Mon Sep 17 00:00:00 2001
+From: Lorenzo Pirritano <lpirritano@anaconda.com>
+Date: Fri, 20 Dec 2024 18:19:09 +0100
+Subject: [PATCH 1/2] set cxx_std_17
+
+---
+ CMakeLists.txt | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bdac5af..93bb8d2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -130,7 +130,7 @@ set(RE2_HEADERS
+     )
+ 
+ add_library(re2 ${RE2_SOURCES})
+-target_compile_features(re2 PUBLIC cxx_std_14)
++target_compile_features(re2 PUBLIC cxx_std_17)
+ target_include_directories(re2 PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
+ # CMake gives "set_target_properties called with incorrect number of arguments."
+ # errors if we don't quote ${RE2_HEADERS}, so quote it despite prevailing style.
+@@ -181,7 +181,7 @@ if(RE2_BUILD_TESTING)
+   if(BUILD_SHARED_LIBS AND WIN32)
+     target_compile_definitions(testing PRIVATE -DRE2_BUILD_TESTING_DLL)
+   endif()
+-  target_compile_features(testing PUBLIC cxx_std_14)
++  target_compile_features(testing PUBLIC cxx_std_17)
+   target_link_libraries(testing PUBLIC re2 GTest::gtest)
+ 
+   set(TEST_TARGETS
+@@ -217,7 +217,7 @@ if(RE2_BUILD_TESTING)
+     if(BUILD_SHARED_LIBS AND WIN32)
+       target_compile_definitions(${target} PRIVATE -DRE2_CONSUME_TESTING_DLL)
+     endif()
+-    target_compile_features(${target} PUBLIC cxx_std_14)
++    target_compile_features(${target} PUBLIC cxx_std_17)
+     target_link_libraries(${target} PUBLIC testing GTest::gtest_main ${EXTRA_TARGET_LINK_LIBRARIES})
+     add_test(NAME ${target} COMMAND ${target})
+   endforeach()
+@@ -227,7 +227,7 @@ if(RE2_BUILD_TESTING)
+     if(BUILD_SHARED_LIBS AND WIN32)
+       target_compile_definitions(${target} PRIVATE -DRE2_CONSUME_TESTING_DLL)
+     endif()
+-    target_compile_features(${target} PUBLIC cxx_std_14)
++    target_compile_features(${target} PUBLIC cxx_std_17)
+     target_link_libraries(${target} PUBLIC testing benchmark::benchmark_main ${EXTRA_TARGET_LINK_LIBRARIES})
+   endforeach()
+ endif()
+-- 
+2.39.1
+
