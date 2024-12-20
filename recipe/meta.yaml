@@ -1,7 +1,7 @@
 {% set name = "re2" %}
-{% set version = "2022-04-01" %}
+{% set version = "2024-02-01" %}
 {% set dotversion = version.replace('-', '.') %}
-{% set sha256 = "1ae8ccfdb1066a731bba6ee0881baad5efd2cd661acd9569b689f2586e1a50e9" %}
+{% set sha256 = "cd191a311b84fcf37310e5cd876845b4bf5aee76fdd755008eef3b6478ce07bb" %}
 
 package:
   name: {{ name|lower }}
@@ -27,6 +27,8 @@ requirements:
     - ninja-base  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+  host:
+    - libabseil
 
 test:
   commands:
