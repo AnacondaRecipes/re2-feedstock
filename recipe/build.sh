@@ -4,6 +4,13 @@ set -ex
 mkdir build-cmake
 pushd build-cmake
 
+if [[ "${target_platform}" == osx-* ]]; then
+    # CMAKE_CXX_STANDARD=17 does not work for osx
+    # will set -std=gnu++17 which does not work
+    # for this project
+    CXXFLAGS="${CXXFLAGS} -DTARGET_OS_OSX=1 -std=c++17"
+fi
+
 cmake ${CMAKE_ARGS} -GNinja \
   -DCMAKE_CXX_STANDARD=17 \
   -DCMAKE_PREFIX_PATH=$PREFIX \
