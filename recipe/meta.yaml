@@ -13,6 +13,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - patches/0001-set-cxx_std_17.patch
+    - patches/0002-set-visibility-preset-for-absl.patch
 
 build:
   number: 0
