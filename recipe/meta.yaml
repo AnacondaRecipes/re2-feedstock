@@ -27,8 +27,10 @@ requirements:
     - ninja-base  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - pkg-config  # [osx]
   host:
     - libabseil
+    - pkg-config  # [osx]
 
 test:
   commands:
