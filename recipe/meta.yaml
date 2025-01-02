@@ -30,7 +30,6 @@ requirements:
     - pkg-config  # [osx]
   host:
     - libabseil
-    - pkg-config  # [osx]
 
 test:
   commands:
