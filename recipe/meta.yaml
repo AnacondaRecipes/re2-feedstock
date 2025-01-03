@@ -85,6 +85,8 @@ outputs:
     build:
       run_exports:
         - {{ pin_subpackage("libre2-" ~ soversion) }}
+      missing_dso_whitelist:
+        - '$RPATH/ld64.so.1'  # [s390x]
     requirements:
       build:
         # for strong run-exports
