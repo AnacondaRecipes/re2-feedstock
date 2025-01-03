@@ -112,10 +112,12 @@ about:
   home: https://github.com/google/re2/
   license: BSD-3-Clause
   license_file: LICENSE
+  license_family: BSD
   summary: |
     RE2 is a fast, safe, thread-friendly alternative to backtracking regular expression
     engines like those used in PCRE, Perl, and Python. It is a C++ library.
   dev_url: https://github.com/google/re2/
+  doc_url: https://github.com/google/re2/
 
 extra:
   recipe-maintainers:
