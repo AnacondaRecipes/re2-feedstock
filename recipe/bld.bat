@@ -4,9 +4,8 @@
 set "CFLAGS= -MD"
 set "CXXFLAGS= -MD"
 
-mkdir -p cmake-build
-
-cd cmake-build
+mkdir -p build
+cd build
 
 set "VS_VERSION=14.0"
 set "VS_MAJOR=14"

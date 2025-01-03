@@ -1,7 +1,5 @@
 @echo on
 
-cd cmake-build
-
 if [%PKG_NAME%] == [re2] (
     REM everything else but the DLL
     cmake --install build
