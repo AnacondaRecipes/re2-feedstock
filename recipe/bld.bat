@@ -7,10 +7,6 @@ set "CXXFLAGS= -MD"
 mkdir -p build
 cd build
 
-set "VS_VERSION=14.0"
-set "VS_MAJOR=14"
-set "VS_YEAR=2015"
-
 cmake -G Ninja ^
     -DBUILD_SHARED_LIBS=ON ^
       -DCMAKE_CXX_STANDARD=17 ^
