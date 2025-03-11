@@ -29,6 +29,8 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - libabseil 20250127.0
+    - benchmark
+    - gtest
 
 outputs:
   # re2 has a rarely-changing SOVERSION, and it's enough to depend on
@@ -39,6 +41,11 @@ outputs:
     build:
       run_exports:
         - {{ pin_subpackage("libre2-" ~ soversion) }}
+        # by adding this run-export, we avoid that different libre2-{X,Y} builds
+        # can be co-installed, because they then depend on different re2-versions
+        # (see below), and each re2 in turn requires a specific soversion.
+        - re2
+
     requirements:
       build:
         - cmake
