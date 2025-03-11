@@ -1,5 +1,5 @@
 {% set name = "re2" %}
-{% set version = "2024-02-01" %}
+{% set version = "2024-07-02" %}
 {% set dotversion = version.replace('-', '.') %}
 {% set build_num = 0 %}
 
@@ -13,7 +13,7 @@ package:
 
 source:
   url: https://github.com/google/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: cd191a311b84fcf37310e5cd876845b4bf5aee76fdd755008eef3b6478ce07bb
+  sha256: eb2df807c781601c14a260a507a5bb4509be1ee626024cb45acbd57cb9d4032b
 
 build:
   number: {{ build_num }}
@@ -28,7 +28,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - libabseil
+    - libabseil 20250127.0
 
 outputs:
   # re2 has a rarely-changing SOVERSION, and it's enough to depend on
@@ -93,7 +93,7 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
-        - libabseil
+        - libabseil 20250127.0
       run_constrained:
         - re2 {{ version }} *_{{ build_num }}
     test:
