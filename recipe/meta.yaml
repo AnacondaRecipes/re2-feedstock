@@ -1,7 +1,7 @@
 {% set name = "re2" %}
 {% set version = "2024-07-02" %}
 {% set dotversion = version.replace('-', '.') %}
-{% set build_num = 0 %}
+{% set build_num = 1 %}
 
 # see https://github.com/google/re2/blob/2023-06-01/CMakeLists.txt#L32-L34
 # changes more rarely than version
@@ -27,10 +27,11 @@ requirements:
     - ninja
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
   host:
-    - libabseil 20250127.0
-    - benchmark
-    - gtest
+    - libabseil 20250127.1
+    - benchmark 1.9.1
+    - gtest {{ gtest }}
 
 outputs:
   # re2 has a rarely-changing SOVERSION, and it's enough to depend on
@@ -99,8 +100,9 @@ outputs:
         # for strong run-exports
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
       host:
-        - libabseil 20250127.0
+        - libabseil 20250127.1
       run_constrained:
         - re2 {{ version }} *_{{ build_num }}
     test:
