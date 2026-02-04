@@ -1,7 +1,7 @@
 {% set name = "re2" %}
 {% set version = "2025-11-05" %}
 {% set dotversion = version.replace('-', '.') %}
-{% set build_num = 0 %}
+{% set build_num = 1 %}
 
 # see https://github.com/google/re2/blob/2023-06-01/CMakeLists.txt#L32-L34
 # changes more rarely than version
