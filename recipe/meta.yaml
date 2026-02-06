@@ -98,6 +98,7 @@ outputs:
     requirements:
       build:
         # for strong run-exports
+        - {{ stdlib('c') }}
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
