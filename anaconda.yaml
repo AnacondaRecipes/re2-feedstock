@@ -1,0 +1,7 @@
+anaconda_config_version: 1
+upstream_sources:
+  - github:
+      identifier: google/re2
+    packages:
+      - libre2-11
+      - re2
