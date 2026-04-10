@@ -2,6 +2,10 @@ anaconda_config_version: 1
 upstream_sources:
   - github:
       identifier: google/re2
+      use_max_tag: true
+      from_pattern: ^(\d{4})-(\d{2})-(\d{2})$
+      to_pattern: \1.\2.\3
+      exclude_regex: (?i)^(?=.*(?:(?<=\d)rc\d*|(?<=\d)dev\d+|(?:^|[-._])(?:alpha|beta|gamma|pre|preview)(?:\d+)?|[-._]rc\d+|(?:^|[-._])dev\d+|(?:\d+\.)+\d+[ab]\d*)).+$
     packages:
       - libre2-11
       - re2
