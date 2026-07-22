@@ -29,7 +29,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - libabseil {{ libabseil }}
+    - libabseil 20260526.0
     - benchmark 1.9.1
     - gtest {{ gtest }}
 
@@ -102,7 +102,7 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
-        - libabseil {{ libabseil }}
+        - libabseil 20260526.0
       run_constrained:
         - re2 {{ version }} *_{{ build_num }}
     test:
